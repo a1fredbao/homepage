@@ -1,112 +1,64 @@
-<svg width="600" height="600" viewBox="170 60 260 480" xmlns="http://www.w3.org/2000/svg" role="img"
-    aria-label="3D green gemstone">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" width="100%" height="100%">
     <defs>
-        <!-- 光照渐变：左上光源 -->
-        <linearGradient id="grad_top_left" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#e8ffe8" />
-            <stop offset="100%" stop-color="#a0d4a0" />
+        <!-- Gradients for the main faces to simulate lighting -->
+        <linearGradient id="grad-tl" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#354526" />
+            <stop offset="100%" stop-color="#0a1005" />
         </linearGradient>
 
-        <linearGradient id="grad_top_right" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#d6f7d6" />
-            <stop offset="100%" stop-color="#7bbf7b" />
+        <linearGradient id="grad-tr" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#c8d0c2" />
+            <stop offset="50%" stop-color="#9ca794" />
+            <stop offset="100%" stop-color="#687360" />
         </linearGradient>
 
-        <linearGradient id="grad_bottom_left" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#9fcf9f" />
-            <stop offset="100%" stop-color="#4f8d4f" />
+        <linearGradient id="grad-bl" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2c3b1e" />
+            <stop offset="100%" stop-color="#151f0e" />
         </linearGradient>
 
-        <linearGradient id="grad_bottom_right" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#9ac79a" />
-            <stop offset="100%" stop-color="#3f7d3f" />
+        <linearGradient id="grad-br" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#243018" />
+            <stop offset="100%" stop-color="#0b1006" />
         </linearGradient>
 
-        <linearGradient id="grad_middle_left" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#b8e5b8" />
-            <stop offset="100%" stop-color="#7fbc7f" />
+        <!-- 内部填充渐变 -->
+        <linearGradient id="pattern-grad" x1="0" y1="150" x2="0" y2="380"
+            gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#608a30" />
+            <stop offset="100%" stop-color="#3b571d" />
         </linearGradient>
 
-        <linearGradient id="grad_middle_right" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#a2dca2" />
-            <stop offset="100%" stop-color="#69a669" />
-        </linearGradient>
-
-        <!-- 投影 -->
-        <filter id="dropShadow" x="-60%" y="-60%" width="220%" height="220%">
-            <feOffset in="SourceAlpha" dx="0" dy="12" result="off" />
-            <feGaussianBlur in="off" stdDeviation="10" result="blur" />
-            <feColorMatrix in="blur" type="matrix"
-                values="0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0.45 0"
-                result="shadow" />
-            <feBlend in="SourceGraphic" in2="shadow" mode="normal" />
-        </filter>
-
-        <!-- 边缘柔光 -->
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.2" result="g" />
-            <feMerge>
-                <feMergeNode in="g" />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-        </filter>
+        <!-- Clip paths -->
+        <clipPath id="clip-bl">
+            <polygon points="100,160 20,150 100,380" />
+        </clipPath>
+        <clipPath id="clip-br">
+            <polygon points="100,160 180,150 100,380" />
+        </clipPath>
     </defs>
 
-    <!-- 阴影 -->
-    <!-- <g transform="translate(0,6)">
-        <ellipse cx="300" cy="555" rx="110" ry="18" fill="#000" opacity="0.16"
-            filter="url(#dropShadow)" />
-    </g> -->
+    <!-- Base Solid Faces -->
+    <polygon points="100,20 20,150 100,160" fill="url(#grad-tl)" />
+    <polygon points="100,20 180,150 100,160" fill="url(#grad-tr)" />
+    <polygon points="100,160 20,150 100,380" fill="url(#grad-bl)" />
+    <polygon points="100,160 180,150 100,380" fill="url(#grad-br)" />
 
+    <!-- Specular Highlights & Reflections -->
+    <path d="M 100,20 L 20,150 L 28,150 L 100,32 Z" fill="#b4d29b" opacity="0.65" />
 
-    <!-- 四个面 -->
-    <polygon points="300,60 170,300 300,315"
-        fill="url(#grad_top_left)" />
-    <polygon points="300,60 300,315 430,300"
-        fill="url(#grad_top_right)" />
-    <polygon points="300,315 170,300 300,540"
-        fill="url(#grad_bottom_left)" />
-    <polygon points="300,315 430,300 300,540"
-        fill="url(#grad_bottom_right)" />
+    <!-- Gonna add something in the future. -->
 
-    <!-- <line stroke-dasharray="8 4" id="mid_l"
-        y2="300" x2="170" y1="290" x1="300" stroke="#000" stroke-opacity="0.55" stroke-width="4"
+    <!-- Thick Black Outlines -->
+    <polygon points="100,20 180,150 100,380 20,150" fill="none" stroke="#050803" stroke-width="5"
         stroke-linejoin="round" />
 
-    <line stroke-dasharray="8 4" id="mid_r"
-        y2="300" x2="430" y1="290" x1="300" stroke="#000" stroke-opacity="0.55" stroke-width="4"
-        stroke-linejoin="round" /> -->
+    <!-- Center & Equator Edges -->
+    <line x1="20" y1="150" x2="100" y2="160" stroke="#050803" stroke-width="4.5"
+        stroke-linecap="round" />
+    <line x1="180" y1="150" x2="100" y2="160" stroke="#050803" stroke-width="4.5"
+        stroke-linecap="round" />
+    <line x1="100" y1="20" x2="100" y2="380" stroke="#050803" stroke-width="4.5"
+        stroke-linecap="round" />
 
-    <!-- 骨架线 -->
-    <g stroke="#051505" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
-        <line x1="300" y1="60" x2="170" y2="300" />
-        <line x1="300" y1="60" x2="430" y2="300" />
-        <line x1="170" y1="300" x2="300" y2="540" />
-        <line x1="430" y1="300" x2="300" y2="540" />
-        <line x1="300" y1="60" x2="300" y2="310" />
-        <line x1="300" y1="320" x2="300" y2="540" />
-        <line x1="170" y1="300" x2="290" y2="313" stroke-width="4" />
-        <line x1="310" y1="313" x2="430" y2="300" stroke-width="4" />
-    </g>
-
-    <!-- 高光 -->
-    <!-- <g filter="url(#glow)">
-        <ellipse cx="300" cy="120" rx="60" ry="18" fill="url(#specular)" opacity="0.9" />
-        <path d="M300,62 L300,300" stroke="rgba(255,255,255,0.6)" stroke-width="3"
-            stroke-linecap="round" />
-        <path d="M300,62 L290,120" stroke="rgba(255,255,255,0.22)" stroke-width="6"
-            stroke-linecap="round" />
-    </g> -->
-
-    <!-- 边缘细线 -->
-    <g stroke="#021502" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-        fill="none" opacity="0.9">
-        <line x1="300" y1="60" x2="170" y2="300" />
-        <line x1="300" y1="60" x2="430" y2="300" />
-        <line x1="170" y1="300" x2="300" y2="540" />
-        <line x1="430" y1="300" x2="300" y2="540" />
-    </g>
 </svg>
