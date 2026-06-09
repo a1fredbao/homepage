@@ -56,3 +56,66 @@ const entries: CpEntry[] = [
     </div>
   </section>
 </template>
+
+<style scoped>
+/* ─── CP Stats ──────────────────────────────────────────────────── */
+.cp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s-3);
+}
+
+.cp-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s-4);
+  background: var(--bg-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.cp-platform {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-subtle);
+}
+
+.cp-handle {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.cp-rating {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.cp-rank {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Codeforces rank colors */
+.cf-candidate-master { color: #aa00aa; }
+.cf-master           { color: #ff8c00; }
+.cf-grandmaster      { color: #ff3300; }
+.cf-expert           { color: #0055ff; }
+.cf-specialist       { color: #03a89e; }
+.cf-pupil            { color: #008000; }
+.cf-newbie           { color: #808080; }
+
+/* AtCoder rank colors */
+.ac-orange { color: #ff8000; }
+.ac-blue   { color: #0000ff; }
+.ac-cyan   { color: #00c0c0; }
+.ac-green  { color: #008000; }
+</style>

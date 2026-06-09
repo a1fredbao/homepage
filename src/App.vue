@@ -5,6 +5,9 @@ import HeroSection from "./components/HeroSection.vue";
 import CpSection from "./components/CpSection.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 
+import IconSun from "./assets/icons/icon-sun.svg?component";
+import IconMoon from "./assets/icons/icon-moon.svg?component";
+
 const { locale, t } = useI18n();
 
 // ── Theme ──────────────────────────────────────────────────────────
@@ -65,35 +68,8 @@ onMounted(() => {
           "
           @click="toggleTheme"
         >
-          <!-- Sun icon (shown in dark mode) -->
-          <svg
-            v-if="theme === 'dark'"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-            />
-          </svg>
-          <!-- Moon icon (shown in light mode) -->
-          <svg
-            v-else
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
+          <IconSun v-if="theme === 'dark'" />
+          <IconMoon v-else />
         </button>
       </div>
     </div>
@@ -116,3 +92,102 @@ onMounted(() => {
     </div>
   </footer>
 </template>
+
+<style scoped>
+/* ─── Navbar ────────────────────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border-muted);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  padding: 0;
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.icon-btn :deep(svg) {
+  width: 14px;
+  height: 14px;
+}
+
+/* ─── Main Content ──────────────────────────────────────────────── */
+main {
+  flex: 1;
+  padding: var(--s-16) 0 var(--s-12);
+}
+
+/* ─── Footer ────────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border-muted);
+  padding: var(--s-6) 0;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.footer-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>

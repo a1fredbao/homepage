@@ -2,6 +2,12 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { useI18n } from "vue-i18n";
 
+import IconGithub from "../assets/icons/icon-github.svg?component";
+import IconEmail from "../assets/icons/icon-email.svg?component";
+import IconX from "../assets/icons/icon-x.svg?component";
+import IconQq from "../assets/icons/icon-qq.svg?component";
+import IconBilibili from "../assets/icons/icon-bilibili.svg?component";
+
 const { t } = useI18n();
 
 const titles = [
@@ -78,12 +84,7 @@ onUnmounted(() => clearTimeout(timer));
         class="social-link"
         role="listitem"
       >
-        <!-- GitHub -->
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
-          />
-        </svg>
+        <IconGithub />
         {{ t("contact.github") }}
       </a>
 
@@ -93,21 +94,165 @@ onUnmounted(() => clearTimeout(timer));
         class="social-link"
         role="listitem"
       >
-        <!-- Mail -->
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <rect x="2" y="4" width="20" height="16" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
+        <IconEmail />
         {{ t("contact.email") }}
+      </a>
+
+      <a
+        id="link-x"
+        href="https://x.com/Alfred_7c00"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+        role="listitem"
+      >
+        <IconX />
+        {{ t("contact.x") }}
+      </a>
+
+      <a
+        id="link-bilibili"
+        href="https://space.bilibili.com/1638383707"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+        role="listitem"
+      >
+        <IconBilibili />
+        {{ t("contact.bilibili") }}
       </a>
     </div>
   </section>
 </template>
+
+<style scoped>
+/* ─── Hero ──────────────────────────────────────────────────────── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin-bottom: var(--s-12);
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-6);
+}
+
+.hero-avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-greeting {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: var(--s-1);
+}
+
+.hero-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: var(--s-2);
+}
+
+/* Typewriter title */
+.hero-title-wrap {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  min-height: 1.4em;
+  margin-bottom: var(--s-3);
+}
+
+.hero-title-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-bio {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 56ch;
+}
+
+/* ─── Social links row ──────────────────────────────────────────── */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: transparent;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.social-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
+  opacity: 1;
+}
+
+.social-link :deep(svg) {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .hero-top {
+    flex-direction: column;
+    gap: var(--s-4);
+  }
+
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-name {
+    font-size: 1.4rem;
+  }
+}
+</style>

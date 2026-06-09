@@ -35,6 +35,10 @@ const messages = {
       email: "Email",
       blog: "Blog",
       telegram: "Telegram",
+      x: "X",
+      wechat: "WeChat",
+      qq: "QQ",
+      bilibili: "Bilibili",
     },
     footer: {
       built: "Built with Vue 3 + Vite",
