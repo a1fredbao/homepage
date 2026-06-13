@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import HeroSection from "./components/HeroSection.vue";
 import CpSection from "./components/CpSection.vue";
+import LinksSection from "./components/LinksSection.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 
 import IconSun from "./assets/icons/icon-sun.svg?component";
@@ -81,6 +82,7 @@ onMounted(() => {
       <HeroSection />
       <CpSection />
       <ProjectsSection />
+      <LinksSection />
     </div>
   </main>
 
@@ -141,7 +143,10 @@ onMounted(() => {
   font-size: 0.75rem;
   font-family: var(--font-mono);
   font-weight: 600;
-  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background-color 0.15s;
   padding: 0;
   line-height: 1;
 }

@@ -29,12 +29,14 @@ const messages = {
       title: "Projects",
       subtitle: "Things I've built",
     },
+    links: {
+      title: "Services",
+    },
     contact: {
       title: "Get in touch",
       github: "GitHub",
       email: "Email",
       blog: "Blog",
-      telegram: "Telegram",
       x: "X",
       wechat: "WeChat",
       qq: "QQ",
