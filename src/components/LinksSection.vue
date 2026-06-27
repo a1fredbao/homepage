@@ -24,18 +24,12 @@ const services: ServiceLink[] = [
     url: "https://image.alfredbao.cn",
     icon: "M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z",
   },
-  // {
-  //   name: "Paste",
-  //   desc: "Minimalist code/text pastebin with syntax highlighting.",
-  //   url: "https://paste.alfredbao.cn",
-  //   icon: "M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z",
-  // },
-  // {
-  //   name: "Monitor",
-  //   desc: "Uptime dashboard for all self-hosted services.",
-  //   url: "https://status.alfredbao.cn",
-  //   icon: "M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z",
-  // },
+  {
+    name: "Clipboard",
+    desc: "A simple online clipboard based on cloudflare workers. Self-hosted. No security concerns.",
+    url: "https://clip.alfredbao.cn",
+    icon: "M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z",
+  },
 ];
 </script>
 

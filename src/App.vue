@@ -51,14 +51,14 @@ onMounted(() => {
       <span class="navbar-brand">Alfred's site</span>
       <div class="navbar-actions">
         <!-- Language toggle -->
-        <button
+        <!-- <button
           id="btn-lang"
           class="icon-btn"
           :aria-label="locale === 'en' ? 'Switch to Chinese' : '切换为英文'"
           @click="toggleLocale"
         >
           {{ locale === "en" ? "中" : "EN" }}
-        </button>
+        </button> -->
 
         <!-- Theme toggle -->
         <button
