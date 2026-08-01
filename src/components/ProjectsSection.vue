@@ -19,6 +19,12 @@ const projects: Project[] = [
     tags: ["Python", "Testing", "CP"],
   },
   {
+    name: "Muninn",
+    desc: "Muninn: An extensible reciting CLI.",
+    url: "https://muninn.alfredbao.cn/",
+    tags: ["Python", "CLI", "memorize", "tool"],
+  },
+  {
     name: "Lynx",
     desc: "lynx: Lectures' Yet aNother eXporter. (A lecture management system)",
     url: "https://github.com/a1fredbao/lynx",
